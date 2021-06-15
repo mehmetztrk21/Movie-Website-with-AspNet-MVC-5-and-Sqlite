@@ -1,0 +1,12 @@
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\bin\Debug\net5.0\movie.entity.deps.json
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\bin\Debug\net5.0\movie.entity.dll
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\bin\Debug\net5.0\ref\movie.entity.dll
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\bin\Debug\net5.0\movie.entity.pdb
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\obj\Debug\net5.0\movie.entity.csprojAssemblyReference.cache
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\obj\Debug\net5.0\movie.entity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\obj\Debug\net5.0\movie.entity.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\obj\Debug\net5.0\movie.entity.AssemblyInfo.cs
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\obj\Debug\net5.0\movie.entity.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\obj\Debug\net5.0\movie.entity.dll
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\obj\Debug\net5.0\ref\movie.entity.dll
+C:\Users\User\Desktop\WebDeveloper\Dersler\Movie\movie.entity\obj\Debug\net5.0\movie.entity.pdb

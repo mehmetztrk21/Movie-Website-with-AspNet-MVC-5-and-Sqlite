@@ -1,0 +1,194 @@
+@model movieModel
+@{
+    Layout = "_AdminLayout";
+}
+<style>
+    td img {
+        width: auto;
+        height: auto;
+        max-height: 100%;
+        max-width: 100%;
+        margin-left: 10%;
+    }
+</style>
+
+<form asp-controller="Admin" asp-action="EditMovie" method="POST" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-10">
+            <input type="hidden" asp-for="@Model.id">
+            <div class="form-group row">
+                <label asp-for="name" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input class="form-control" asp-for="name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="imdb_puan" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="imdb_puan" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="vizyon" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="vizyon" type="date" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="süre" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="süre" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="app_store" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="app_store" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="play_store" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="play_store" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="netflix" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="netflix" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="imdb" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="imdb" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="metacritic" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="metacritic" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label asp-for="fragman" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input asp-for="fragman" class="form-control">
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label asp-for="ozet" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <textarea asp-for="ozet" class="form-control" cols="4" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="description" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <textarea id="editor" asp-for="description" class="form-control" cols="4" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="img" class="col-sm-3 col-form-label"></label>
+                <div class="col-sm-9">
+                    <input type="hidden" asp-for="img">
+                    <img src="~/images/@Model.img" width="80" />
+
+
+                    <input type="file" name="file1"> @*file adında resmimizi form ile controllere gönderiyoruz.*@
+                </div>
+            </div>
+            <br><br><br>
+            <div class="form-group row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Kaydet</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br>
+
+    <h3 style="text-align: center;border-bottom: 2px solid rgba(255, 255, 255, 0.5);" class="mt-5 pb-1 mb-3">Başrol
+        Oyuncular</h3>
+    <div class="mb-5 mt-3">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Resim</th>
+                    <th scope="col">İsim</th>
+                    <th scope="col" style="width: 100px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.actors)
+                {
+                    <tr>
+                        <th scope="row">@item.id</th>
+                        <td style="height: 150px;"><img src="~/images/@item.img" width="200px"></td>
+                        <td>@item.name</td>
+                        <td style="width: 150px;">
+                            <a asp-controller="admin" asp-action="EditActor" asp-route-id="@item.id"
+                            class="btn btn-info btn-sm" target="_blank">Düzenle</a>
+                            <a asp-controller="admin" asp-action="DeleteActor" asp-route-id="@item.id"
+                            class="btn btn-danger btn-sm" target="_blank">Sil</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <a asp-controller="admin" asp-action="AddActor" asp-route-id="@Model.id" class="btn btn-primary btn-sm mb-5"
+            style="float:right;" target="_blank">Aktör Ekle</a>
+
+    </div>
+    <br>
+    <hr>
+    <br>
+    <h3 style="text-align: center;border-bottom: 2px solid rgba(255, 255, 255, 0.5);" class="mt-5 pb-1 mb-3">
+        Başarılar</h3>
+    <div class="mb-5 mt-3">
+        <table class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Başlık</th>
+                    <th scope="col" style="width: 100px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.awards)
+                {
+                    <tr>
+                        <th scope="row">@item.id</th>
+                        <td>@item.name</td>
+                        <td style="width: 150px;">
+                            <a asp-controller="admin" asp-action="EditAward" asp-route-id="@item.id"
+                            class="btn btn-info btn-sm" target="_blank">Düzenle</a>
+                            <a asp-controller="admin" asp-action="DeleteAward" asp-route-id="@item.id"
+                            class="btn btn-danger btn-sm" target="_blank">Sil</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <a asp-controller="admin" asp-action="AddAward" asp-route-id="@Model.id" class="btn btn-primary btn-sm mb-5"
+            style="float:right;" target="_blank">Başarı Ekle</a>
+
+    </div>
+
+
+
+</form>
+
+
+<script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('editor');
+</script>

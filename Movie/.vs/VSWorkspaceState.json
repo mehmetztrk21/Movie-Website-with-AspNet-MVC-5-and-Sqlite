@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\movie.data",
+    "\\movie.data\\Concrete",
+    "\\movie.entity",
+    "\\movie.webui",
+    "\\movie.webui\\Views",
+    "\\movie.webui\\Views\\Home"
+  ],
+  "SelectedNode": "\\movie.data\\Concrete\\AboutRepository.cs",
+  "PreviewInSolutionExplorer": false
+}

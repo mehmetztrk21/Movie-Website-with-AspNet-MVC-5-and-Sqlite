@@ -1,0 +1,105 @@
+@model GenericModel
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css"
+        integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+<link href="~/images/icon.png"
+        rel="icon"> @*burası sekme resmi*@
+
+    <title>MovieHome</title>
+    <style>
+        body {
+            background-image: linear-gradient(to right bottom,
+                    /*renk efekti ve bu efek nerden nereye değişsin*/
+                    rgba(243, 240, 240, 0.7),
+                    rgba(243, 240, 240, 0.95)), url("https://www.abajournal.com/images/mag_images/0818_FMOVIES_BACKGROUND.jpg");
+            background-repeat: no-repeat;
+            background-position: top;
+            background-size: cover;
+            background-attachment: fixed;
+            /*sabit arkaplann*/
+            transition: all 5s ease;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+           .images img {
+            width: auto;
+            height: auto;
+            max-height: 100%;
+            max-width: 100%;
+            border-radius:20px;
+        }
+
+
+        h3,
+        h5 {
+            font-weight: bold;
+            font-family: 'Times New Roman', Times, serif;
+        }
+    </style>
+</head>
+
+<body>
+    @await Html.PartialAsync("_navbar")
+    <div class="jumbotron jumbotron-fluid bg-light" style="border-top: 1px solid #DDD1C1;background-image: linear-gradient(to right bottom,
+                    /*renk efekti ve bu efek nerden nereye değişsin*/
+                   rgba(243, 240, 240, 0.7),
+                    rgba(243, 240, 240, 0.95));box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 class="display-4" style="color:rgba(75, 68, 68, 0.7);">MovieHome Sayfasına Hoş Geldiniz.</h3>
+                    <hr>
+                    <p class="lead" style="color:rgba(75, 68, 68, 0.9);">İncelemek istediğiniz yönetmeni hemen seçin. &nbsp;<i class="fas fa-video"></i></p>
+                </div>
+                <div class="col-6 images">
+                    <img src="https://unblast.com/wp-content/uploads/2020/10/Movie-Director-Vector-Illustration.jpg" class="ml-5 float-sm-right">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            @foreach (var item in Model.directors)
+            {
+                <div class="col-md-4 mt-5">
+                    <div class="card" style="border-radius: 10px;box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;">
+                        <img class="card-img-top" src="~/images/@item.avatar" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title pb-3"
+                            style="text-align:center;border-bottom: 2px solid rgba(36, 7, 11, 0.1);">@item.name
+                            </h5>
+                            <p class="card-text">@item.ozet</p>
+                            <a href="/home/details/@item.id" class="btn btn-info" style="display:block;float: center;">Detaylı
+                                Bilgi</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+    @await Html.PartialAsync("_footer")
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
